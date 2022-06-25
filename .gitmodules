@@ -1,3 +1,6 @@
 [submodule "quicly"]
 	path = quicly
 	url = https://github.com/h2o/quicly.git
+[submodule "picotls"]
+	path = picotls
+	url = https://github.com/h2o/picotls.git
