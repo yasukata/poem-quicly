@@ -33,11 +33,11 @@ all: $(PROGS)
 
 $(PICOTLS_DIR)/libpicotls-openssl.a:
 $(PICOTLS_DIR)/libpicotls-core.a:
-	cmake -E env CFLAGS="-fPIC" cmake --clean-first -H$(PICOTLS_DIR) -B$(PICOTLS_DIR) .
+	cmake -E env CFLAGS="-fPIC" cmake -H$(PICOTLS_DIR) -B$(PICOTLS_DIR) .
 	make -C $(PICOTLS_DIR)
 
 $(QUICLY_DIR)/libquicly.a:
-	cmake -E env CFLAGS="-fPIC" cmake --clean-first -H$(QUICLY_DIR) -B$(QUICLY_DIR) .
+	cmake -E env CFLAGS="-fPIC" cmake -H$(QUICLY_DIR) -B$(QUICLY_DIR) .
 	make -C $(QUICLY_DIR)
 
 $(PROGS): $(OBJS)
