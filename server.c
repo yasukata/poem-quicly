@@ -20,6 +20,7 @@
 
 #include <picotls.h>
 #include <picotls/openssl.h>
+#include <picotls/t/util.h>
 #include <quicly.h>
 #include <quicly/defaults.h>
 #include <quicly/streambuf.h>
@@ -117,6 +118,9 @@ static void *quicly_socket_thread(void *data)
 		.key_exchanges = ptls_openssl_key_exchanges,
 		.cipher_suites = ptls_openssl_cipher_suites,
 	};
+
+	if (getenv("SSLKEYLOGFILE"))
+		setup_log_event(&tlsctx, getenv("SSLKEYLOGFILE"));
 
 	ctx.tls = &tlsctx;
 	quicly_amend_ptls_context(ctx.tls);
